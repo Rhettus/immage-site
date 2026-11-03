@@ -9,9 +9,9 @@ interface Props {
 }
 const {
   title,
-  description = "Immage is a raw photo editor with familiar panels, sliders and shortcuts, powered by darktable. For macOS, Windows and Linux.",
+  description = "darktable, opinionated. Immage is a raw photo editor with familiar panels, sliders and shortcuts, powered by darktable. For macOS, Windows and Linux.",
 } = Astro.props;
-const pageTitle = title ? `${title} · Immage` : "Immage: a raw photo editor powered by darktable";
+const pageTitle = title ? `${title} · Immage` : "Immage: darktable, opinionated";
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const path = Astro.url.pathname;
 const darktable = await guideOr("darktable", readmeHref());
@@ -76,6 +76,7 @@ const current = (p: string) => (path.startsWith(url(p)) ? "page" : undefined);
             <span>Immage</span>
           </a>
           <p>
+            <em class="motto">darktable, opinionated.</em><br />
             A personal, non-commercial raw photo editor built on darktable. Free and open source under the
             GPL-3.0-or-later. All builds are alpha.
           </p>
@@ -175,6 +176,10 @@ const current = (p: string) => (path.startsWith(url(p)) ? "page" : undefined);
     display: grid;
     grid-template-columns: 2fr repeat(3, 1fr);
     gap: 32px;
+  }
+  .about .motto {
+    font: italic 400 19px/1.6 var(--display);
+    color: var(--text);
   }
   .about p {
     color: var(--text-muted);

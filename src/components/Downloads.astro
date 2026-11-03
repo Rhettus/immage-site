@@ -58,8 +58,8 @@ const icons = {
 
 <script>
   // Mark the visitor's platform; the page works the same without this.
-  const ua = navigator.userAgent;
-  const os = /Mac/.test(ua) && !/iPhone|iPad/.test(ua) ? "macos" : /Windows/.test(ua) ? "windows" : /Linux|X11/.test(ua) && !/Android/.test(ua) ? "linux" : "";
+  import { detectPlatform } from "../lib/detect";
+  const { os } = await detectPlatform();
   if (os) document.querySelector(`.downloads .card[data-os="${os}"]`)?.classList.add("mine");
 </script>
 

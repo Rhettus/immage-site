@@ -3,7 +3,7 @@ import Base from "../layouts/Base.astro";
 import Compare from "../components/Compare.astro";
 import Downloads from "../components/Downloads.astro";
 import { features } from "../lib/features";
-import { ISSUES, guideHref, guideOr, meta, readmeHref, url } from "../lib/site";
+import { ISSUES, direct as dl, guideHref, guideOr, meta, mb, readmeHref, url } from "../lib/site";
 
 const darktable = await guideOr("darktable", readmeHref());
 
@@ -26,19 +26,36 @@ const steps = [
   <section class="hero">
     <div class="glow" aria-hidden="true"></div>
     <div class="wrap intro">
-      <a class="pill" href={url("release-notes/")}>
-        <span class="dot"></span> Alpha · {meta.release.version} is out
-      </a>
+      <div class="kicker">
+        <p class="motto">darktable, opinionated.</p>
+        <a class="pill" href={url("release-notes/")}>
+          <span class="dot"></span> Alpha · {meta.release.version} is out
+        </a>
+      </div>
       <h1 class="display">Familiar raw editing,<br /><em>darktable</em> underneath.</h1>
       <p class="lede">
         Immage is a raw photo editor with the panels, sliders and shortcuts you already know. Your photos stay in
         folders, your edits stay beside them, and darktable does the processing.
       </p>
       <div class="ctas">
-        <a class="btn primary" href={url("#download")}>Download for free</a>
+        <a
+          class="btn primary"
+          id="get"
+          href={url("#download")}
+          data-macos={dl.macos?.url}
+          data-windows={dl.windows?.url}
+          data-linux-x64={dl.linuxX64?.url}
+          data-linux-arm64={dl.linuxArm64?.url}
+          data-sizes={JSON.stringify({
+            macos: dl.macos && mb(dl.macos.size),
+            windows: dl.windows && mb(dl.windows.size),
+            "linux-x64": dl.linuxX64 && mb(dl.linuxX64.size),
+            "linux-arm64": dl.linuxArm64 && mb(dl.linuxArm64.size),
+          })}>Download for free</a
+        >
         <a class="btn" href={url("guide/getting-started/")}>Read the guide</a>
       </div>
-      <p class="platforms">macOS · Windows · Linux, x86-64 and ARM64</p>
+      <p class="platforms" id="get-note">macOS · Windows · Linux, x86-64 and ARM64</p>
     </div>
     <div class="wrap shot">
       <div class="window frame">
@@ -175,7 +192,58 @@ const steps = [
   <Downloads />
 </Base>
 
+<script>
+  // Point the hero button straight at this visitor's download. Without
+  // JavaScript, or for an unknown platform, it goes to the download cards.
+  import { detectPlatform } from "../lib/detect";
+
+  const NAMES = { macos: "macOS", windows: "Windows", linux: "Linux" } as const;
+  const NOTES = {
+    macos: "Apple silicon, macOS 15 or newer",
+    windows: "Windows 10 or 11 · installer",
+    "linux-x64": "x86-64 AppImage",
+    "linux-arm64": "ARM64 AppImage",
+  } as const;
+
+  const button = document.getElementById("get") as HTMLAnchorElement | null;
+  const note = document.getElementById("get-note");
+  if (button && note) {
+    const { os, arch } = await detectPlatform();
+    const key = os === "linux" ? (arch ? `linux-${arch}` : undefined) : os;
+    const href = key && button.dataset[key.replace(/-(\w)/, (_, c) => c.toUpperCase())];
+    if (os && href && key) {
+      const sizes = JSON.parse(button.dataset.sizes || "{}");
+      button.href = href;
+      button.setAttribute("download", "");
+      button.textContent = `Download for ${NAMES[os]}`;
+      note.innerHTML = "";
+      note.append(
+        `${NOTES[key as keyof typeof NOTES]}${sizes[key] ? ` · ${sizes[key]}` : ""} · `,
+        Object.assign(document.createElement("a"), { href: "#download", textContent: "Other platforms" }),
+      );
+    } else if (os) {
+      // e.g. Linux with an unknown architecture: let them pick a card.
+      button.textContent = `Download for ${NAMES[os]}`;
+    }
+  }
+</script>
+
 <style>
+  .kicker {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 12px 18px;
+  }
+  .motto {
+    margin: 0;
+    font: italic 400 clamp(18px, 2.2vw, 22px) / 1.2 var(--display);
+    color: var(--text-muted);
+  }
+  .platforms a {
+    color: var(--text-muted);
+  }
   .hero {
     position: relative;
     padding-top: clamp(56px, 9vw, 110px);

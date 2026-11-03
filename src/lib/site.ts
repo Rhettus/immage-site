@@ -102,6 +102,18 @@ export const downloads: Download[] = [
   },
 ];
 
+/** One file per platform, for the hero's direct download button. */
+const asset = (re: RegExp) => {
+  const a = find(re);
+  return a ? { url: a.url as string, size: a.size as number } : undefined;
+};
+export const direct = {
+  macos: asset(/-macOS-arm64\.dmg$/),
+  windows: asset(/-Windows-x64-setup\.exe$/),
+  linuxX64: asset(/-Linux-x86_64\.AppImage$/),
+  linuxArm64: asset(/-Linux-arm64\.AppImage$/),
+};
+
 export const mb = (bytes: number) => `${Math.round(bytes / 1048576)} MB`;
 
 export const releaseDate = new Date(meta.release.published).toLocaleDateString("en", {
