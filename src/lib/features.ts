@@ -31,6 +31,19 @@ export const features: Feature[] = [
     },
   },
   {
+    id: "color-grading",
+    guide: "adjustments#color-grading",
+    title: "Color grading on wheels",
+    lede: "Shadows, Midtones, Highlights and Global, each with a hue, saturation and luminance. Drag a wheel, or switch to sliders.",
+    points: [],
+    media: {
+      src: "media/color-grading.webp",
+      alt: "The Color Grading wheels for Midtones, Shadows and Highlights, with the shadows pushed toward teal and the highlights toward orange",
+      width: 1600,
+      height: 984,
+    },
+  },
+  {
     id: "masks",
     guide: "masks",
     title: "Masks, with AI selections",
@@ -47,6 +60,12 @@ export const features: Feature[] = [
     title: "Heal and clone",
     lede: "Remove dust spots, blemishes and distractions. Immage picks the source; you can move it.",
     points: ["Q to open, A to visualize spots."],
+    media: {
+      src: "media/heal.webp",
+      alt: "The Heal panel with one spot on the grille of a red vintage Ford and a dashed circle marking its source",
+      width: 1600,
+      height: 984,
+    },
   },
   {
     id: "negative",
@@ -68,6 +87,12 @@ export const features: Feature[] = [
     title: "Presets and 53 film looks",
     lede: "Presets set sliders with an Amount; looks are film emulations with their own strength. Both preview live on your photo.",
     points: [],
+    media: {
+      src: "media/presets.webp",
+      alt: "The Presets panel with live previews of the photo for B&W Contrast, Bright & Airy, Moody, Soft and Vivid, and the film look groups",
+      width: 1600,
+      height: 984,
+    },
   },
   {
     id: "zones",
@@ -75,6 +100,12 @@ export const features: Feature[] = [
     title: "The Zone System",
     lede: "See a black and white photo's tones as zones 0 to X, place them where you want them, and fine-tune any band of tones.",
     points: [],
+    media: {
+      src: "media/zones.webp",
+      alt: "A black and white version of the Ford with the Zone System panel: a histogram of zones 0 to X and the placement curve",
+      width: 1600,
+      height: 984,
+    },
   },
   {
     id: "denoise",
