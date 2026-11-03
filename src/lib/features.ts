@@ -53,6 +53,12 @@ export const features: Feature[] = [
       "Brushes, linear and radial gradients, color, luminance and depth ranges.",
       "The usual keys: K brush, M linear, ⇧M radial, O overlay.",
     ],
+    media: {
+      src: "media/masks.webp",
+      alt: "A linear gradient mask from the top of the photo, shown with its overlay, and the Masks panel with the mask's own Exposure at -0.70",
+      width: 1600,
+      height: 984,
+    },
   },
   {
     id: "heal",
