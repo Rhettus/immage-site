@@ -22,12 +22,12 @@ export const features: Feature[] = [
       "No process version to pick: AgX tone mapping plays that part.",
       "Auto tone, white balance presets and a live histogram with scopes.",
     ],
-    media: {
-      src: "media/adjustments-basic.webp",
-      alt: "The Adjustments panel with the histogram and expanded Basic controls for Profile, Treatment, White Balance, Tone and Presence",
-      width: 720,
-      height: 2164,
-      fit: "top",
+    compare: {
+      before: "media/basic-before.webp",
+      after: "media/basic-after.webp",
+      alt: "A raw photo of the front of a red vintage Ford, as shot and with Basic contrast, highlights, shadows, clarity and vibrance",
+      width: 1560,
+      height: 1167,
     },
   },
   {
