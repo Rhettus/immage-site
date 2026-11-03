@@ -5,8 +5,8 @@ import { BASE, CACHE, REPO, readMeta } from "./scripts/meta.mjs";
 const { ref } = readMeta();
 
 export default defineConfig({
-  site: "https://rhettus.github.io",
-  base: BASE,
+  site: "https://immage.photo",
+  base: BASE || "/",
   trailingSlash: "always",
   build: { format: "directory" },
   markdown: {

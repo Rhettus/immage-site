@@ -1,7 +1,7 @@
 # immage-site
 
 The website for [Immage](https://github.com/Rhettus/immage), published at
-<https://rhettus.github.io/immage-site/>.
+<https://immage.photo/>.
 
 It is a static [Astro](https://astro.build/) site. The landing page is written
 here; the user guide and release notes are **not**. They come from the immage

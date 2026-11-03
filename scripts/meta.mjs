@@ -4,7 +4,8 @@ import path from "node:path";
 
 export const REPO = "Rhettus/immage";
 export const CACHE = ".cache/immage";
-export const BASE = "/immage-site";
+// the site is served from the root of https://immage.photo
+export const BASE = "";
 
 export function readMeta() {
   const file = path.join(CACHE, "meta.json");
