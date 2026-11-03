@@ -1,0 +1,183 @@
+@import "@fontsource-variable/geist";
+@import "@fontsource-variable/fraunces/opsz-italic.css";
+@import "@fontsource-variable/fraunces/opsz.css";
+
+/* Dark first, like the app. Light follows the system. */
+:root {
+  color-scheme: dark;
+  --bg: #0f0f12;
+  --bg-raised: #17171c;
+  --bg-sunken: #0a0a0c;
+  --line: #2a2a31;
+  --line-strong: #3a3a43;
+  --text: #ececf0;
+  --text-muted: #a3a3ad;
+  --text-faint: #6e6e78;
+  --hot-1: #ff9a3c;
+  --hot-2: #ff5f6d;
+  --hot: linear-gradient(120deg, var(--hot-1), var(--hot-2));
+  --link: #ffad66;
+  --on-hot: #1a0d06;
+  --shadow: 0 30px 80px -20px rgb(0 0 0 / 0.7);
+  --radius: 14px;
+  --font: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  --display: "Fraunces Variable", ui-serif, Georgia, serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --gutter: clamp(16px, 4vw, 40px);
+  --max: 1200px;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+    --bg: #f7f6f3;
+    --bg-raised: #ffffff;
+    --bg-sunken: #eceae5;
+    --line: #dedbd4;
+    --line-strong: #c9c5bc;
+    --text: #18181b;
+    --text-muted: #55555e;
+    --text-faint: #8a8a93;
+    --link: #c2410c;
+    --shadow: 0 30px 70px -25px rgb(40 30 20 / 0.35);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 400 17px/1.6 var(--font);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--link);
+  text-underline-offset: 3px;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+:focus-visible {
+  outline: 2px solid var(--hot-1);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.wrap {
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+}
+.skip:focus {
+  left: 16px;
+  top: 12px;
+  z-index: 100;
+  background: var(--bg-raised);
+  padding: 8px 14px;
+  border-radius: 8px;
+}
+
+.eyebrow {
+  font: 500 13px/1 var(--font);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.display {
+  font-family: var(--display);
+  font-weight: 400;
+  font-optical-sizing: auto;
+}
+.display em {
+  font-style: italic;
+  background: var(--hot);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-right: 0.06em;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 46px;
+  padding: 0 22px;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  color: var(--text);
+  font: 500 16px/1 var(--font);
+  text-decoration: none;
+  transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+.btn:hover {
+  border-color: var(--text-faint);
+  transform: translateY(-1px);
+}
+.btn.primary {
+  background: var(--hot);
+  border-color: transparent;
+  color: var(--on-hot);
+  font-weight: 600;
+}
+.btn small {
+  font-weight: 400;
+  opacity: 0.75;
+}
+
+.frame {
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--bg-sunken);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

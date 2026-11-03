@@ -1,0 +1,20 @@
+---
+import { getCollection, render } from "astro:content";
+import Guide from "../layouts/Guide.astro";
+import { GITHUB, meta } from "../lib/site";
+
+const [entry] = await getCollection("notes");
+const { Content, headings } = await render(entry);
+// Versions only in the table of contents, not their section labels.
+const versions = headings.filter((h) => h.depth === 2).slice(0, 12);
+---
+
+<Guide
+  title="Release notes"
+  description="What changed in each version of Immage."
+  id=""
+  headings={versions}
+  source={`${GITHUB}/blob/${meta.ref}/RELEASE_NOTES.md`}
+>
+  <Content />
+</Guide>

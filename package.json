@@ -1,0 +1,22 @@
+{
+  "name": "immage-site",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "license": "GPL-3.0-or-later",
+  "scripts": {
+    "sync": "node scripts/sync-docs.mjs",
+    "dev": "astro dev",
+    "build": "npm run sync && astro build && node scripts/check-links.mjs",
+    "preview": "astro preview"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@astrojs/markdown-remark": "7.3.4",
+    "@fontsource-variable/fraunces": "5.3.0",
+    "@fontsource-variable/geist": "5.3.0",
+    "astro": "7.4.2"
+  }
+}

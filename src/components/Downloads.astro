@@ -1,0 +1,153 @@
+---
+import { RELEASES, downloads, mb, meta, releaseDate, url } from "../lib/site";
+
+const icons = {
+  macos: "M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.8 1.2 1.8 2.6 3.1 2.6 1.3-.1 1.7-.8 3.3-.8 1.5 0 2 .8 3.3.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.6-1-2.5-4.1zM13.9 5c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.3-.6 3.1-1.5z",
+  windows: "M3 5.5l7.4-1v7.1H3V5.5zm0 13l7.4 1v-7H3v6zm8.3 1.2L21 21v-8.5h-9.7v7.2zm0-15.4v7.3H21V3l-9.7 1.3z",
+  linux:
+    "M12 2c-2.2 0-3.6 1.9-3.6 4.6 0 1.4.3 2.3-.4 3.6-.9 1.7-2.9 4-3 6.6-.1 1.1.4 1.6 1.1 1.8.5.2.9.8 1.4 1.4.6.8 1.5 1.5 3 1.5.9 0 1.5-.4 1.9-.8h3.2c.4.4 1 .8 1.9.8 1.5 0 2.4-.7 3-1.5.5-.6.9-1.2 1.4-1.4.7-.2 1.2-.7 1.1-1.8-.1-2.6-2.1-4.9-3-6.6-.7-1.3-.4-2.2-.4-3.6C15.6 3.9 14.2 2 12 2zm-1.6 4.2c.4 0 .7.5.7 1.1s-.3 1.1-.7 1.1-.7-.5-.7-1.1.3-1.1.7-1.1zm3.2 0c.4 0 .7.5.7 1.1s-.3 1.1-.7 1.1-.7-.5-.7-1.1.3-1.1.7-1.1zM12 9.4c.9 0 2 .6 2 1.1 0 .4-1.1 1.1-2 1.1s-2-.7-2-1.1c0-.5 1.1-1.1 2-1.1z",
+};
+---
+
+<section id="download" class="downloads">
+  <div class="wrap">
+    <p class="eyebrow">Download</p>
+    <h2 class="display">Immage <em>{meta.release.version}</em></h2>
+    <p class="sub">
+      Released {releaseDate}. <a href={url("release-notes/")}>What's new</a> · <a href={RELEASES}>All releases</a>
+    </p>
+
+    <div class="cards">
+      {
+        downloads.map((d) => (
+          <article class="card" data-os={d.os}>
+            <span class="yours">Your system</span>
+            <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true">
+              <path fill="currentColor" d={icons[d.os]} />
+            </svg>
+            <h3>{d.name}</h3>
+            <p class="req">{d.requirements}</p>
+            <div class="files">
+              {d.files.length ? (
+                d.files.map((f, i) => (
+                  <a class={`btn ${i === 0 ? "primary" : ""}`} href={f.url} download>
+                    {f.label} <small>{mb(f.size)}</small>
+                  </a>
+                ))
+              ) : (
+                <a class="btn" href={RELEASES}>
+                  See releases
+                </a>
+              )}
+            </div>
+            <details>
+              <summary>Opening it the first time</summary>
+              <p>{d.firstOpen}</p>
+            </details>
+          </article>
+        ))
+      }
+    </div>
+
+    <p class="note">
+      Builds are not yet signed with a developer certificate, so each system warns the first time. After that, Immage
+      checks for updates daily and installs them from Preferences › About › Updates.
+    </p>
+  </div>
+</section>
+
+<script>
+  // Mark the visitor's platform; the page works the same without this.
+  const ua = navigator.userAgent;
+  const os = /Mac/.test(ua) && !/iPhone|iPad/.test(ua) ? "macos" : /Windows/.test(ua) ? "windows" : /Linux|X11/.test(ua) && !/Android/.test(ua) ? "linux" : "";
+  if (os) document.querySelector(`.downloads .card[data-os="${os}"]`)?.classList.add("mine");
+</script>
+
+<style>
+  .downloads {
+    padding: 120px 0 0;
+    scroll-margin-top: 40px;
+  }
+  h2 {
+    font-size: clamp(40px, 6vw, 64px);
+    margin: 12px 0 8px;
+  }
+  .sub {
+    color: var(--text-muted);
+    margin: 0 0 40px;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 28px;
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+    background: var(--bg-raised);
+  }
+  .card.mine {
+    border-color: transparent;
+    background:
+      linear-gradient(var(--bg-raised), var(--bg-raised)) padding-box,
+      var(--hot) border-box;
+    border: 1px solid transparent;
+  }
+  .yours {
+    display: none;
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    font-size: 12px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: var(--hot);
+    color: var(--on-hot);
+    font-weight: 600;
+  }
+  .card.mine .yours {
+    display: block;
+  }
+  h3 {
+    margin: 0;
+    font-size: 24px;
+  }
+  .req {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 15px;
+    flex: 1;
+  }
+  .files {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  details {
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+  summary {
+    cursor: pointer;
+    color: var(--text-faint);
+  }
+  details p {
+    margin: 8px 0 0;
+  }
+  .note {
+    margin-top: 28px;
+    color: var(--text-faint);
+    font-size: 14px;
+    max-width: 70ch;
+  }
+  @media (max-width: 900px) {
+    .cards {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

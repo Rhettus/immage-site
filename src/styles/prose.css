@@ -1,0 +1,119 @@
+/* Rendered Markdown from immage's docs. */
+.prose {
+  min-width: 0;
+  max-width: 760px;
+  font-size: 17px;
+}
+.prose h1 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(36px, 5vw, 52px);
+  letter-spacing: -0.025em;
+  margin: 8px 0 24px;
+}
+.prose h2 {
+  font-size: 28px;
+  margin: 56px 0 14px;
+  padding-top: 8px;
+}
+.prose h3 {
+  font-size: 21px;
+  margin: 36px 0 10px;
+}
+.prose h4 {
+  font-size: 17px;
+  margin: 28px 0 8px;
+}
+.prose p,
+.prose li {
+  color: color-mix(in srgb, var(--text) 86%, var(--text-muted));
+}
+.prose li {
+  margin: 6px 0;
+}
+.prose li::marker {
+  color: var(--text-faint);
+}
+.prose strong {
+  color: var(--text);
+  font-weight: 600;
+}
+.prose img {
+  border-radius: 10px;
+  border: 1px solid var(--line);
+}
+.prose code {
+  font-family: var(--mono);
+  font-size: 0.88em;
+  padding: 0.12em 0.38em;
+  border-radius: 5px;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+}
+.prose pre {
+  padding: 16px 18px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  overflow-x: auto;
+  font-size: 14px;
+  line-height: 1.55;
+}
+.prose pre code {
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: inherit;
+}
+.prose .astro-code,
+.prose .astro-code span {
+  background-color: var(--shiki-light-bg);
+  color: var(--shiki-light);
+}
+@media (prefers-color-scheme: dark) {
+  .prose .astro-code,
+  .prose .astro-code span {
+    background-color: var(--shiki-dark-bg) !important;
+    color: var(--shiki-dark) !important;
+  }
+}
+.prose table {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  font-size: 15px;
+  margin: 20px 0;
+}
+.prose th,
+.prose td {
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+.prose th {
+  color: var(--text);
+  font-weight: 600;
+  border-bottom-color: var(--line-strong);
+}
+.prose blockquote {
+  margin: 20px 0;
+  padding: 4px 20px;
+  border-left: 3px solid var(--hot-1);
+  background: var(--bg-raised);
+  border-radius: 0 10px 10px 0;
+}
+.prose hr {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 40px 0;
+}
+.prose kbd {
+  font-family: var(--font);
+  font-size: 0.85em;
+  padding: 0.1em 0.45em;
+  border: 1px solid var(--line-strong);
+  border-bottom-width: 2px;
+  border-radius: 5px;
+}
