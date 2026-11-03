@@ -26,6 +26,10 @@ const steps = [
   <section class="hero">
     <div class="glow" aria-hidden="true"></div>
     <div class="wrap intro">
+      <picture class="logo">
+        <source srcset={url("media/logo-light.webp")} media="(prefers-color-scheme: light)" />
+        <img src={url("media/logo-dark.webp")} alt="Immage" width="960" height="415" fetchpriority="high" />
+      </picture>
       <div class="kicker">
         <p class="motto">darktable, opinionated.</p>
         <a class="pill" href={url("release-notes/")}>
@@ -229,6 +233,12 @@ const steps = [
 </script>
 
 <style>
+  .logo img {
+    display: block;
+    width: clamp(240px, 38vw, 440px);
+    height: auto;
+    margin: 0 auto 10px;
+  }
   .kicker {
     display: flex;
     flex-wrap: wrap;
@@ -246,7 +256,7 @@ const steps = [
   }
   .hero {
     position: relative;
-    padding-top: clamp(56px, 9vw, 110px);
+    padding-top: clamp(40px, 6vw, 72px);
     isolation: isolate;
   }
   .glow {
@@ -292,8 +302,8 @@ const steps = [
     box-shadow: 0 0 10px var(--hot-1);
   }
   h1 {
-    font-size: clamp(42px, 7.4vw, 92px);
-    margin: 28px 0 22px;
+    font-size: clamp(36px, 5.6vw, 68px);
+    margin: 26px 0 20px;
     letter-spacing: -0.03em;
     line-height: 1.02;
   }
