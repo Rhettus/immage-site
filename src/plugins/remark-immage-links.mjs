@@ -1,6 +1,7 @@
 // Makes immage's Markdown work on the site:
 // - links between guide pages (foo.md#x) go to /guide/foo/#x
-// - images/... go to the copied images; missing screenshots are dropped
+// - images/... go to the copied images; missing screenshots are dropped,
+//   and a portrait one (a side panel) gets class "tall" so text wraps beside it
 // - anything else in the repo goes to GitHub at the synced ref
 // - in RELEASE_NOTES.md, the "Improvements" / "Performance" / "Bug fixes"
 //   labels become headings
@@ -8,6 +9,20 @@ import fs from "node:fs";
 import path from "node:path";
 
 const LABELS = new Set(["Improvements", "Performance", "Bug fixes"]);
+
+// width and height from a PNG header, or null for anything else
+function pngSize(file) {
+  try {
+    const fd = fs.openSync(file, "r");
+    const b = Buffer.alloc(24);
+    fs.readSync(fd, b, 0, 24, 0);
+    fs.closeSync(fd);
+    if (b.toString("latin1", 1, 4) !== "PNG") return null;
+    return { width: b.readUInt32BE(16), height: b.readUInt32BE(20) };
+  } catch {
+    return null;
+  }
+}
 
 export default function remarkImmageLinks({ base, ref, root, repo }) {
   const rootAbs = path.resolve(root);
@@ -46,6 +61,10 @@ export default function remarkImmageLinks({ base, ref, root, repo }) {
         if (child.type === "image") {
           const url = map(child.url);
           if (url === null) continue;
+          const size = url !== child.url && pngSize(path.resolve(dir, decodeURI(child.url.split("#")[0])));
+          if (size && size.height > size.width) {
+            child.data = { ...child.data, hProperties: { ...child.data?.hProperties, className: ["tall"] } };
+          }
           child.url = url;
         } else if (child.type === "link") {
           const url = map(child.url);
@@ -67,6 +86,11 @@ export default function remarkImmageLinks({ base, ref, root, repo }) {
           });
           if (missing) continue;
           child.value = child.value.replace(/<img (?![^>]*loading=)/g, '<img loading="lazy" ');
+          child.value = child.value.replace(/<img (?![^>]*class=)([^>]*src="([^"]+)")/g, (all, rest, url) => {
+            const local = url.startsWith(`${base}/guide/images/`) && path.join(rootAbs, "app/docs/images", url.slice(`${base}/guide/images/`.length));
+            const size = local && pngSize(local);
+            return size && size.height > size.width ? `<img class="tall" ${rest}` : all;
+          });
         } else if (
           isNotes &&
           child.type === "paragraph" &&
