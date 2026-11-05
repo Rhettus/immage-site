@@ -11,7 +11,7 @@
 import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
-import { CACHE, REPO } from "./meta.mjs";
+import { CACHE, DOCS_REF, REPO } from "./meta.mjs";
 
 const PUBLIC_IMAGES = "public/guide/images";
 
@@ -28,7 +28,7 @@ function git(args, cwd) {
 }
 
 const release = await api(`repos/${REPO}/releases/latest`);
-const ref = process.env.IMMAGE_REF || release.tag_name;
+const ref = process.env.IMMAGE_REF || DOCS_REF || release.tag_name;
 
 fs.rmSync(CACHE, { recursive: true, force: true });
 fs.rmSync(PUBLIC_IMAGES, { recursive: true, force: true });

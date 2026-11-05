@@ -25,7 +25,7 @@ export const features: Feature[] = [
     compare: {
       before: "media/basic-before.webp",
       after: "media/basic-after.webp",
-      alt: "A raw photo of the front of a red vintage Ford, as shot and with Basic contrast, highlights, shadows, clarity and vibrance",
+      alt: "A raw photo of the front of a red vintage Ford, flat with every edit reset, and edited with Basic contrast, highlights and shadows plus the Kodachrome 64 film look",
       width: 1560,
       height: 1167,
     },
@@ -91,7 +91,7 @@ export const features: Feature[] = [
     id: "looks",
     guide: "presets-and-looks",
     title: "Presets and 53 film looks",
-    lede: "Presets set sliders with an Amount; looks are film emulations with their own strength. Both preview live on your photo.",
+    lede: "Presets set sliders with an Amount; looks are film emulations from João Almeida's t3mujinpack, with their own strength. Both preview live on your photo.",
     points: [],
     media: {
       src: "media/presets.webp",
@@ -114,6 +114,22 @@ export const features: Feature[] = [
     },
   },
   {
+    id: "film-simulation",
+    guide: "film-simulation",
+    title: "Film simulation",
+    lede: "Render a photo as a film stock exposed, developed and printed on a paper, or scanned, with darktable's spektrafilm. It works from measured data of real films and papers, so you get their color, contrast, grain and halation.",
+    points: [
+      "Pick a preset, film and paper; set exposure, color, grain and halation.",
+      "Export to Library saves a positive copy.",
+    ],
+    media: {
+      src: "media/film-simulation.webp",
+      alt: "The Film Simulation panel with Kodak Gold 200 on its matching paper, and the photo rendered with its color and grain",
+      width: 1600,
+      height: 984,
+    },
+  },
+  {
     id: "denoise",
     guide: "adjustments#detail",
     title: "AI Denoise",
@@ -126,5 +142,22 @@ export const features: Feature[] = [
     title: "Export with frames and captions",
     lede: "To a folder or straight into an Immich album, with sizes, file-name templates, borders, captions and a watermark.",
     points: [],
+  },
+  {
+    id: "print",
+    guide: "print",
+    title: "Print and soft proof",
+    lede: "Print the photo or save it as a PDF, on a to-scale page in the viewer with the photo rendered in place.",
+    points: [
+      "Printer, paper, orientation, margins, photo size and placement.",
+      "Color managed by the printer, or converted with a printer ICC profile.",
+      "Soft Proof (S) shows the photo as that profile prints it, with a gamut warning.",
+    ],
+    media: {
+      src: "media/print.webp",
+      alt: "The Print panel set to Save as PDF, with the photo placed on a Letter page in the viewer",
+      width: 1600,
+      height: 984,
+    },
   },
 ];
