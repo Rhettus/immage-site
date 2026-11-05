@@ -6,7 +6,7 @@ export const REPO = "Rhettus/immage";
 // The guide and release notes are built from this immage branch or tag
 // instead of the latest release, while the downloads still point at the
 // latest release. Set it to "" once the release it names is the latest.
-export const DOCS_REF = "release-0.42.0";
+export const DOCS_REF = "";
 export const CACHE = ".cache/immage";
 // the site is served from the root of https://immage.photo
 export const BASE = "";
