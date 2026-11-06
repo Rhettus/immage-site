@@ -150,6 +150,7 @@ export const features: Feature[] = [
     lede: "Print the photo or save it as a PDF, on a to-scale page in the viewer with the photo rendered in place.",
     points: [
       "Printer, paper, orientation, margins, photo size and placement.",
+      "Cells layout prints selected photos as a contact sheet, with file names.",
       "Color managed by the printer, or converted with a printer ICC profile.",
       "Soft Proof (S) shows the photo as that profile prints it, with a gamut warning.",
     ],
