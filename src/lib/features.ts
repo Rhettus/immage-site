@@ -21,6 +21,7 @@ export const features: Feature[] = [
       "Each slider drives one of darktable's modules. Hover a row to see which.",
       "No process version to pick: AgX tone mapping plays that part.",
       "Auto tone, white balance presets and a live histogram with scopes.",
+      "Lens Corrections has a searchable Lens drop-down, so a lens the file does not name, or names wrongly, can be picked by hand.",
     ],
     compare: {
       before: "media/basic-before.webp",
@@ -50,6 +51,7 @@ export const features: Feature[] = [
     lede: "Brighten a face, darken the sky, warm the foreground. Each mask has its own sliders.",
     points: [
       "AI Subject, Sky, Background, People and Select Object.",
+      "Color Range masks with Hue, Hue Range, Minimum Chroma and Smoothness.",
       "Brushes, linear and radial gradients, color, luminance and depth ranges.",
       "The usual keys: K brush, M linear, ⇧M radial, O overlay.",
     ],
@@ -78,7 +80,7 @@ export const features: Feature[] = [
     guide: "negative",
     title: "Film negatives",
     lede: "Turn a camera scan of a negative into a positive with darktable's negadoctor, color or black and white, and a whole roll from one frame.",
-    points: [],
+    points: ["Independent Input and Working Profile menus, including installed ICC profiles."],
   },
   {
     id: "merge",
@@ -135,6 +137,17 @@ export const features: Feature[] = [
     title: "AI Denoise",
     lede: "Denoise a raw into a new DNG, with a before and after preview, then edit it like any other photo.",
     points: [],
+  },
+  {
+    id: "interface",
+    guide: "preferences",
+    title: "Menus, themes and maps",
+    lede: "File, Edit, Photo, View and Help menus list every command with its shortcut, and the interface comes in Dark, Darktable Grey and Light, or a theme of your own.",
+    points: [
+      "Profile > Load AgX Preset imports your AgX presets from darktable.",
+      "Location maps expand over the photo, zoom with the wheel and search for places.",
+      "Open a folder from the command line, as well as a photo.",
+    ],
   },
   {
     id: "export",
