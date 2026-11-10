@@ -54,6 +54,7 @@ export const features: Feature[] = [
       "Color Range masks with Hue, Hue Range, Minimum Chroma and Smoothness.",
       "Brushes, linear and radial gradients, color, luminance and depth ranges.",
       "The usual keys: K brush, M linear, ⇧M radial, O overlay.",
+      "Fold a mask's shapes away with the chevron on its row.",
     ],
     media: {
       src: "media/masks.webp",
@@ -80,7 +81,10 @@ export const features: Feature[] = [
     guide: "negative",
     title: "Film negatives",
     lede: "Turn a camera scan of a negative into a positive with darktable's negadoctor, color or black and white, and a whole roll from one frame.",
-    points: ["Independent Input and Working Profile menus, including installed ICC profiles."],
+    points: [
+      "Independent Input and Working Profile menus, including installed ICC profiles.",
+      "The profiles you chose last carry over to the next frame of the roll.",
+    ],
   },
   {
     id: "merge",
@@ -147,6 +151,7 @@ export const features: Feature[] = [
       "Profile > Load AgX Preset imports your AgX presets from darktable.",
       "Location maps expand over the photo, zoom with the wheel and search for places.",
       "Open a folder from the command line, as well as a photo.",
+      "Help > User Guide opens this site's guide.",
     ],
   },
   {

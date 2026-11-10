@@ -32,7 +32,7 @@ The guide's sidebar follows the **Contents** list in immage's
 ```sh
 npm ci
 npm run sync                     # latest release
-IMMAGE_REF=release-0.44.0 npm run sync     # or a branch or tag
+IMMAGE_REF=v0.44.1 npm run sync            # or a branch or tag
 IMMAGE_LOCAL=../immage npm run sync        # or a local checkout
 npm run dev
 ```

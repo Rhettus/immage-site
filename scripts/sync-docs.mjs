@@ -5,7 +5,7 @@
 // - the latest release's assets, for the download cards
 // into .cache/immage/, with guide images copied to public/guide/images/.
 //
-//   IMMAGE_REF=release-0.44.0   build the guide from a branch or tag
+//   IMMAGE_REF=v0.44.1          build the guide from a branch or tag
 //   IMMAGE_LOCAL=../immage      copy from a local checkout instead of cloning
 //   GITHUB_TOKEN                optional; avoids API rate limits
 import { execFileSync } from "node:child_process";
