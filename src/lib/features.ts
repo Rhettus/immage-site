@@ -29,8 +29,8 @@ export const features: Feature[] = [
       before: "media/basic-before.webp",
       after: "media/basic-after.webp",
       alt: "A raw photo of the front of a red vintage Ford, flat with every edit reset, and edited with Basic contrast, highlights and shadows plus the Kodachrome 64 film look",
-      width: 1560,
-      height: 1167,
+      width: 1414,
+      height: 1058,
     },
   },
   {
@@ -43,7 +43,7 @@ export const features: Feature[] = [
       src: "media/color-grading.webp",
       alt: "The Color Grading wheels for Midtones, Shadows and Highlights, with the shadows pushed toward teal and the highlights toward orange",
       width: 1600,
-      height: 984,
+      height: 1059,
     },
   },
   {
@@ -61,9 +61,9 @@ export const features: Feature[] = [
     ],
     media: {
       src: "media/masks.webp",
-      alt: "A linear gradient mask from the top of the photo, shown with its overlay, and the Masks panel with the mask's own Exposure at -0.70",
+      alt: "A linear gradient mask from the top of the photo, shown with its overlay, and the Masks panel with the mask's own Exposure at -0.68",
       width: 1600,
-      height: 984,
+      height: 1059,
     },
   },
   {
@@ -77,9 +77,9 @@ export const features: Feature[] = [
     ],
     media: {
       src: "media/heal.webp",
-      alt: "The Heal panel with one spot on the grille of a red vintage Ford and a dashed circle marking its source",
+      alt: "The Heal panel with one spot on the grille of a red vintage Ford, a dashed circle marking its source, and the Show spots choice",
       width: 1600,
-      height: 984,
+      height: 1059,
     },
   },
   {
@@ -108,9 +108,9 @@ export const features: Feature[] = [
     points: [],
     media: {
       src: "media/presets.webp",
-      alt: "The Presets panel with live previews of the photo for B&W Contrast, Bright & Airy, Moody, Soft and Vivid, and the film look groups",
+      alt: "The Presets panel with its groups, and live previews of the photo for the Color Slide film looks",
       width: 1600,
-      height: 984,
+      height: 1059,
     },
   },
   {
@@ -123,7 +123,7 @@ export const features: Feature[] = [
       src: "media/zones.webp",
       alt: "A black and white version of the Ford with the Zone System panel: a histogram of zones 0 to X and the placement curve",
       width: 1600,
-      height: 984,
+      height: 1059,
     },
   },
   {
@@ -138,9 +138,9 @@ export const features: Feature[] = [
     ],
     media: {
       src: "media/film-simulation.webp",
-      alt: "The Film Simulation panel with Kodak Gold 200 on its matching paper, and the photo rendered with its color and grain",
+      alt: "The Film Simulation panel's first step, with Kodak Gold 200 picked from tiles that preview the photo",
       width: 1600,
-      height: 984,
+      height: 1059,
     },
   },
   {
@@ -187,7 +187,7 @@ export const features: Feature[] = [
       src: "media/print.webp",
       alt: "The Print panel set to Save as PDF, with the photo placed on a Letter page in the viewer",
       width: 1600,
-      height: 984,
+      height: 1059,
     },
   },
 ];
