@@ -22,6 +22,8 @@ export const features: Feature[] = [
       "No process version to pick: AgX tone mapping plays that part.",
       "Auto tone, white balance presets and a live histogram with scopes.",
       "Lens Corrections has a searchable Lens drop-down, so a lens the file does not name, or names wrongly, can be picked by hand.",
+      "Advanced settings sit behind a sliders icon in each panel's title, so the usual ones stay in front.",
+      "Whites has a Highlight Brilliance setting, so bright scenes such as snow can brighten further before clipping.",
     ],
     compare: {
       before: "media/basic-before.webp",
@@ -50,11 +52,12 @@ export const features: Feature[] = [
     title: "Masks, with AI selections",
     lede: "Brighten a face, darken the sky, warm the foreground. Each mask has its own sliders.",
     points: [
-      "AI Subject, Sky, Background, People and Select Object.",
+      "AI Subject, Sky, Background, People and Select Object. Background can also be added to or subtracted from a mask.",
       "Color Range masks with Hue, Hue Range, Minimum Chroma and Smoothness.",
       "Brushes, linear and radial gradients, color, luminance and depth ranges.",
       "The usual keys: K brush, M linear, ⇧M radial, O overlay.",
       "Fold a mask's shapes away with the chevron on its row.",
+      "Duplicate a mask, or duplicate and invert it, without its adjustments.",
     ],
     media: {
       src: "media/masks.webp",
@@ -68,7 +71,10 @@ export const features: Feature[] = [
     guide: "heal",
     title: "Heal and clone",
     lede: "Remove dust spots, blemishes and distractions. Immage picks the source; you can move it.",
-    points: ["Q to open, A to visualize spots."],
+    points: [
+      "Q to open, A to visualize spots.",
+      "Show Spots, or H, hides earlier spots while you retouch.",
+    ],
     media: {
       src: "media/heal.webp",
       alt: "The Heal panel with one spot on the grille of a red vintage Ford and a dashed circle marking its source",
@@ -82,6 +88,7 @@ export const features: Feature[] = [
     title: "Film negatives",
     lede: "Turn a camera scan of a negative into a positive with darktable's negadoctor, color or black and white, and a whole roll from one frame.",
     points: [
+      "Numbered steps, starting from the film border.",
       "Independent Input and Working Profile menus, including installed ICC profiles.",
       "The profiles you chose last carry over to the next frame of the roll.",
     ],
@@ -125,7 +132,8 @@ export const features: Feature[] = [
     title: "Film simulation",
     lede: "Render a photo as a film stock exposed, developed and printed on a paper, or scanned, with darktable's spektrafilm. It works from measured data of real films and papers, so you get their color, contrast, grain and halation.",
     points: [
-      "Pick a preset, film and paper; set exposure, color, grain and halation.",
+      "Numbered steps: start from a preset, then pick a film and paper from tiles that preview your photo.",
+      "Set exposure, color, grain and halation.",
       "Export to Library saves a positive copy.",
     ],
     media: {
@@ -152,6 +160,9 @@ export const features: Feature[] = [
       "Location maps expand over the photo, zoom with the wheel and search for places.",
       "Open a folder from the command line, as well as a photo.",
       "Help > User Guide opens this site's guide.",
+      "Hold Space and drag to pan a zoomed-in photo in any tool.",
+      "Preferences > General > Backup saves settings, presets, looks, plugins and keywords as one .zip.",
+      "Help > Create Support Bundle saves a .zip for bug reports, with personal details replaced. Nothing is uploaded.",
     ],
   },
   {
@@ -159,7 +170,7 @@ export const features: Feature[] = [
     guide: "export",
     title: "Export with frames and captions",
     lede: "To a folder or straight into an Immich album, with sizes, file-name templates, borders, captions and a watermark.",
-    points: [],
+    points: ["JPEG XL too, lossless at quality 100, in 8 to 16 bit."],
   },
   {
     id: "print",
