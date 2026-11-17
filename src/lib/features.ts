@@ -101,6 +101,24 @@ export const features: Feature[] = [
     points: [],
   },
   {
+    id: "find",
+    guide: "library#find",
+    title: "Find any photo",
+    lede: "Search and filter in one place: by what is in the photo, by file name, or by rating, camera, lens, keywords, exposure and date.",
+    points: [
+      "Smart search finds photos by what they show, in this folder or all of them.",
+      "Filters show as chips; each list counts only the photos your other choices leave.",
+      "Tell bodies of the same model apart by serial number.",
+      "Save a filter and open it again with Alt+1 to Alt+9.",
+    ],
+    media: {
+      src: "media/find.webp",
+      alt: "Find in the column beside the grid, with 3 stars and up and RAW as filter chips, leaving four photos of the red vintage Ford",
+      width: 1600,
+      height: 1059,
+    },
+  },
+  {
     id: "looks",
     guide: "presets-and-looks",
     title: "Presets and 53 film looks",
