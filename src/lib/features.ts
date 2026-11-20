@@ -106,8 +106,9 @@ export const features: Feature[] = [
     title: "Find any photo",
     lede: "Search and filter in one place: by what is in the photo, by file name, or by rating, camera, lens, keywords, exposure and date.",
     points: [
+      "Open Find from any view to jump to the Library grid with the search box ready to type.",
       "Smart search finds photos by what they show, in this folder or all of them.",
-      "Filters show as chips; each list counts only the photos your other choices leave.",
+      "Filters expand in place and show what you selected. Clear them one at a time or reset the whole search.",
       "Tell bodies of the same model apart by serial number.",
       "Save a filter and open it again with Alt+1 to Alt+9.",
     ],
@@ -169,10 +170,31 @@ export const features: Feature[] = [
     points: [],
   },
   {
+    id: "rename",
+    guide: "library",
+    title: "Rename photos and move folders",
+    lede: "Rename one photo or a selection. Build names from photo information and sequence numbers, then preview an example and the number of files affected. Edits and sidecars follow the new names.",
+    points: ["Drag whole folders to another folder or a NAS destination. Immage verifies the copy before removing the originals."],
+  },
+  {
+    id: "advanced",
+    guide: "advanced-mode",
+    title: "Module presets and color calibration",
+    lede: "Save and apply Advanced module presets, including imported darktable presets and presets inside masks. Profile a photographed ColorChecker or SpyderCheckr from Color calibration.",
+    points: [],
+  },
+  {
+    id: "accelerator",
+    guide: "immage-accelerator",
+    title: "Immage Accelerator (Experimental)",
+    lede: "Browse mapped network shares using a shared morfPhoto metadata index and cached camera previews. Optional NAS Smart Search finds unedited originals by description.",
+    points: [],
+  },
+  {
     id: "interface",
     guide: "preferences",
     title: "Menus, themes and maps",
-    lede: "File, Edit, Photo, View and Help menus list every command with its shortcut, and the interface comes in Dark, Darktable Grey and Light, or a theme of your own.",
+    lede: "File, Edit, Photo, View and Help menus list commands with their shortcuts. Choose a built-in theme from the swatches in Preferences or add a theme of your own.",
     points: [
       "Profile > Load AgX Preset imports your AgX presets from darktable.",
       "Location maps expand over the photo, zoom with the wheel and search for places.",

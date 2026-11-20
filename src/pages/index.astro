@@ -6,9 +6,10 @@ import { features } from "../lib/features";
 import { ISSUES, direct as dl, guideHref, guideOr, meta, mb, readmeHref, url } from "../lib/site";
 
 const darktable = await guideOr("darktable", readmeHref());
+const acceleratorGuide = await guideOr("immage-accelerator", "");
 
 const rows = features.filter((f) => f.media || f.compare);
-const cards = features.filter((f) => !f.media && !f.compare);
+const cards = features.filter((f) => !f.media && !f.compare && (f.guide !== "immage-accelerator" || acceleratorGuide));
 const href = (guide: string) => {
   const [id, hash] = guide.split("#");
   return guideHref(id) + (hash ? `#${hash}` : "");
