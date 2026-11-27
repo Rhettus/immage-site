@@ -19,7 +19,7 @@ export const features: Feature[] = [
     lede: "Basic, Tone Curve, HSL / Color, B&W Mix, Color Grading, Detail, Lens Corrections, Transform and Effects, in their usual order with their usual slider names.",
     points: [
       "Each slider drives one of darktable's modules. Hover a row to see which.",
-      "No process version to pick: AgX tone mapping plays that part.",
+      "No process version to pick: AgX tone mapping plays that part. JPEGs and other non-RAW photos open looking as shot.",
       "Auto tone, white balance presets and a live histogram with scopes.",
       "Lens Corrections has a searchable Lens drop-down, so a lens the file does not name, or names wrongly, can be picked by hand.",
       "Advanced settings sit behind a sliders icon in each panel's title, so the usual ones stay in front.",
@@ -54,6 +54,7 @@ export const features: Feature[] = [
     points: [
       "AI Subject, Sky, Background, People and Select Object. Background can also be added to or subtracted from a mask.",
       "Color Range masks with Hue, Hue Range, Minimum Chroma and Smoothness.",
+      "Hover over a Color, Luminance, Parametric or Depth Range control to preview the selection.",
       "Brushes, linear and radial gradients, color, luminance and depth ranges.",
       "The usual keys: K brush, M linear, ⇧M radial, O overlay.",
       "Fold a mask's shapes away with the chevron on its row.",
@@ -69,9 +70,11 @@ export const features: Feature[] = [
   {
     id: "heal",
     guide: "heal",
-    title: "Heal and clone",
+    title: "Heal, clone, fill and blur",
     lede: "Remove dust spots, blemishes and distractions. Immage picks the source; you can move it.",
     points: [
+      "Fill and Blur spots even out skin tones and color blotches. Fill can change only the color, so light and texture stay, and can be limited to a hue range.",
+      "Select several spots to change their brush settings or delete them in one Undo step.",
       "Q to open, A to visualize spots.",
       "Show Spots, or H, hides earlier spots while you retouch.",
     ],
@@ -98,7 +101,7 @@ export const features: Feature[] = [
     guide: "library#hdr-merge",
     title: "HDR and panorama merge",
     lede: "Merge bracketed or overlapping raws into one new DNG you keep editing.",
-    points: [],
+    points: ["Panorama Merge evens out exposure, color and vignetting between photos, so skies show no bands where they overlap."],
   },
   {
     id: "find",
@@ -108,6 +111,7 @@ export const features: Feature[] = [
     points: [
       "Open Find from any view to jump to the Library grid with the search box ready to type.",
       "Smart search finds photos by what they show, in this folder or all of them.",
+      "Under All folders, the filter lists show every camera, lens, keyword, file type, month and exposure setting in your library, with photo counts.",
       "Filters expand in place and show what you selected. Clear them one at a time or reset the whole search.",
       "Tell bodies of the same model apart by serial number.",
       "Save a filter and open it again with Alt+1 to Alt+9.",
@@ -172,16 +176,23 @@ export const features: Feature[] = [
   {
     id: "rename",
     guide: "library",
-    title: "Rename photos and move folders",
+    title: "Rename, move and copy",
     lede: "Rename one photo or a selection. Build names from photo information and sequence numbers, then preview an example and the number of files affected. Edits and sidecars follow the new names.",
-    points: ["Drag whole folders to another folder or a NAS destination. Immage verifies the copy before removing the originals."],
+    points: [
+      "Move to Folder and Copy to Folder sort photos into folders named from their metadata, such as year/month/day. Exports can do the same.",
+      "Drag whole folders to another folder or a NAS destination. Immage verifies the copy before removing the originals.",
+      "RAW+JPEG pairs stack as one thumbnail. Click the format badge to spread them out and edit either file.",
+    ],
   },
   {
     id: "advanced",
     guide: "advanced-mode",
-    title: "Module presets and color calibration",
+    title: "Module order, presets and color calibration",
     lede: "Save and apply Advanced module presets, including imported darktable presets and presets inside masks. Profile a photographed ColorChecker or SpyderCheckr from Color calibration.",
-    points: [],
+    points: [
+      "Drag modules in the Module order dialog to change the order they run in for a photo.",
+      "Color zones has its hue, chroma and lightness curves, on the whole photo or under a mask.",
+    ],
   },
   {
     id: "accelerator",
@@ -200,7 +211,8 @@ export const features: Feature[] = [
       "Location maps expand over the photo, zoom with the wheel and search for places.",
       "Open a folder from the command line, as well as a photo.",
       "Help > User Guide opens this site's guide.",
-      "Hold Space and drag to pan a zoomed-in photo in any tool.",
+      "Hold Space and drag to pan a zoomed-in photo in any tool, or zoom out to half the size of Fit.",
+      "Copy Settings can calculate white balance for each photo it pastes to.",
       "Preferences > General > Backup saves settings, presets, looks, plugins and keywords as one .zip.",
       "Help > Create Support Bundle saves a .zip for bug reports, with personal details replaced. Nothing is uploaded.",
     ],
